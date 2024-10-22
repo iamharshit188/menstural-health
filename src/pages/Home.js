@@ -1,37 +1,53 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import React from "react";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+import { healthStats } from "../data/healthStats";
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
+const Home = () => {
   return (
-    <nav className="bg-purple-700 text-white p-4">
-      <div className="max-w-6xl mx-auto flex justify-between items-center">
-        <Link to="/" className="text-xl font-bold">MensturalHealth</Link>
-        
-        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
-          {isOpen ? <X /> : <Menu />}
-        </button>
-
-        <div className="hidden md:flex space-x-8">
-          <Link to="/" className="hover:text-purple-200">Home</Link>
-          <Link to="/buy" className="hover:text-purple-200">Buy Products</Link>
-          <Link to="/about" className="hover:text-purple-200">About</Link>
+    <div className="max-w-6xl mx-auto p-4">
+      <section className="mb-12">
+        <h1 className="text-4xl font-bold text-purple-700 mb-6">Understanding Menstrual Health</h1>
+        <div className="mb-8">
+          <h2 className="text-2xl font-semibold mb-4">Health Impact Statistics in India</h2>
+          <div className="h-96">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={healthStats}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="issue" />
+                <YAxis />
+                <Tooltip />
+                <Bar dataKey="percentage" fill="#9333ea" name="Percentage of Users Affected" />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
         </div>
 
-        {isOpen && (
-          <div className="absolute top-16 left-0 right-0 bg-purple-700 p-4 md:hidden">
-            <div className="flex flex-col space-y-4">
-              <Link to="/" className="hover:text-purple-200">Home</Link>
-              <Link to="/buy" className="hover:text-purple-200">Buy Products</Link>
-              <Link to="/about" className="hover:text-purple-200">About</Link>
+        <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
+          <h2 className="text-2xl font-semibold mb-4">Why Switch to Sustainable Options?</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h3 className="text-xl font-semibold mb-2">Health Benefits</h3>
+              <ul className="list-disc pl-5 space-y-2">
+                <li>Made from medical-grade materials</li>
+                <li>No harmful chemicals or dyes</li>
+                <li>Reduced risk of infections</li>
+                <li>Better for sensitive skin</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold mb-2">Environmental Impact</h3>
+              <ul className="list-disc pl-5 space-y-2">
+                <li>Reduce plastic waste by 99%</li>
+                <li>One cup replaces 3000+ disposable products</li>
+                <li>Lower carbon footprint</li>
+                <li>Sustainable production methods</li>
+              </ul>
             </div>
           </div>
-        )}
-      </div>
-    </nav>
+        </div>
+      </section>
+    </div>
   );
 };
 
-export default Navbar;
+export default Home;

@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { ShoppingCart } from 'lucide-react';
-import { products } from '../data/products';
+import React, { useState } from "react";
+import { ShoppingCart } from "lucide-react";
+import { products } from "../data/products";
 
 const Buy = () => {
   const [cart, setCart] = useState([]);
 
   const addToCart = (product) => {
     setCart([...cart, product]);
-    alert('Product added to cart!');
+    alert("Product added to cart!");
   };
 
   return (

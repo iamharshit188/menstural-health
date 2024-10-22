@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const About = () => {
   return (
@@ -7,7 +7,7 @@ const About = () => {
       <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
         <h3 className="text-2xl font-semibold mb-4">Our Mission</h3>
         <p className="text-gray-600 mb-6">
-          We're committed to promoting sustainable menstrual health solutions while educating about the 
+          We are committed to promoting sustainable menstrual health solutions while educating about the 
           environmental and health impacts of traditional products. Our goal is to make sustainable 
           menstrual products accessible to everyone in India.
         </p>
